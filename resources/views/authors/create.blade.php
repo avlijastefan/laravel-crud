@@ -14,9 +14,11 @@
 <form method="POST" action="{{ route('author.submit') }}">
   @csrf
   <div class="row">
-    <div class="col">
-      <input name="first_name" type="text" class="form-control" placeholder="First name">
-      <input name="last_name" type="text" class="form-control" placeholder="Last name">
+    <div class="col-md-6">
+    <input name="first_name" type="text" class="form-control" placeholder="First name">
+    </div>
+    <div class="col-md-6">
+    <input name="last_name" type="text" class="form-control" placeholder="Last name">
     </div>
   </div>
   <input type="submit" value="Save" class="btn btn-primary mt-4 btn-block">

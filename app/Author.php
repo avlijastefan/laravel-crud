@@ -12,6 +12,6 @@ class Author extends Model {
     }
 
     public function fullName() {
-        return "{ $this->first_name } { $this->last_name }";
+        return "$this->first_name  $this->last_name";
     }
 }

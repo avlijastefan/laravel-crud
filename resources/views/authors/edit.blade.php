@@ -16,8 +16,10 @@
     <input type="hidden" name="_method" value="PUT">
     <input type="hidden" name="id" value="{{ $author->id }}">
     <div class="row">
-        <div class="col">
-            <input name="first_name" type="text" class="form-control" placeholder="First name" value="{{ $author->first_name }}">
+        <div class="col-md-6">
+          <input name="first_name" type="text" class="form-control" placeholder="First name" value="{{ $author->first_name }}">
+        </div>
+          <div class="col-md-6">
             <input name="last_name" type="text" class="form-control" placeholder="Last name" value="{{ $author->last_name }}">
         </div>
     </div>
