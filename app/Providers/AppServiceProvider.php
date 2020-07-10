@@ -25,5 +25,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
+        Validator::extend('alphanum_spaces', function ($attribute, $value) {
+
+            // This will only accept alpha and spaces. 
+            // If you want to accept hyphens use: /^[\pL\s-]+$/u.
+            return preg_match('/^[\pL\s]+$/u', $value); 
+    
+        });
     }
 }

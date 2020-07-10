@@ -27,17 +27,17 @@ class BookRequest extends FormRequest
         {           
             case 'POST':
                 return [
-                    'name' => 'required|min:5|max:50|alpha|unique:books,name|bail',
-                    'published'=> 'required|min:5|max:50|unique:books,published|bail',
-                    'price' => 'required|min:5|max:10|unique:books,price|bail'
+                    'name' => 'required|min:5|max:50|alphanum_spaces|unique:books,name|bail',
+                    'published'=> 'required|min:5|max:50|numeric|unique:books,published|bail',
+                    'price' => 'required|min:5|max:10|numeric|unique:books,price|bail'
                 ];
             break;
 
             case 'PUT':
                 return [
-                    'name' => 'required|min:5|max:50|alpha|unique:books,name,'  . $this->id . ',id|bail',
-                    'published'=> 'required|min:5|max:50|unique:books,published,|bail',
-                    'price' => 'required|min:5|max:10|unique:books,price|bail'
+                    'name' => 'required|min:5|max:50|alphanum_spaces|unique:books,name,'  . $this->id . ',id|bail',
+                    'published'=> 'required|min:5|max:50|numeric|unique:books,published,|bail',
+                    'price' => 'required|min:5|max:10|numeric|unique:books,price|bail'
                 ];
             break;
         }
@@ -49,19 +49,21 @@ class BookRequest extends FormRequest
             'name.required' => 'Name is required.',
             'name.min' => 'Name must be 5 characters.',
             'name.max' => 'Name can have a maximum of 50 characters.',
-            'name.alpha' => 'Name must be entirely alphabetic characters.',
+            'name.alphanum_spaces' => 'Name must be entirely alphabetic characters.',
             'name.unique' => 'Name must not exist within the given database table.',
             'name.bail' => 'Name is not required.',
-            'published.required' => '',
-            'published.min' => '',
-            'published.max' => '',
-            'published.unique' => '',
-            'published.bail' =>'',
-            'price.required' => '',
-            'price.min' => '',
-            'price.max' => '',
-            'price.unique' =>'',
-            'price.bail' =>''
+            'published.required' => 'Published is required.',
+            'published.min' => 'Published must be 5 characters.',
+            'published.max' => 'Published can have a maximum of 50 characters.',
+            'published.numeric' => 'Published must keep only numbers',
+            'published.unique' => 'Published must not exist within the given database table.',
+            'published.bail' =>'Published is not required.',
+            'price.required' => 'Price is required.',
+            'price.min' => 'Price must be 5 characters.',
+            'price.max' => 'Price can have a maximum of 10 characters.',
+            'price.numeric' => 'Price must keep only numbers',
+            'price.unique' =>'Price must not exist within the given database table.',
+            'price.bail' =>'Price is not required.'
         ];
     }
 }
