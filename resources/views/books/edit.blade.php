@@ -25,7 +25,7 @@
     <div class="form-group mt-4">
     <select class="form-control" name="author_id">
       @foreach($authors as $author)
-        <option value="{{ $author->id }}">{{ $author->first_name }}>{{ $author->last_name }}</option>
+        <option value="{{ $author->id }}">{{ $author->fullName() }}</option>
       @endforeach
     </select>
  </div>

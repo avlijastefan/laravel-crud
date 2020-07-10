@@ -8,8 +8,8 @@ class AuthorService
 {
     public function getAll()
     {
-        return Author::orderBy('first_name')->get();
-        return Author::orderBy('last_name')->get();
+        return Author::orderBy('last_name')->orderBy('first_name')->get();
+        
     }
 
     public function getById($id)
