@@ -10,7 +10,8 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Name</th>
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -19,7 +20,8 @@
     @foreach ($authors as $author)
         <tr>
             <th scope="row">{{ $author->id }}</th>
-            <td>{{ $author->name }}</td>
+            <td>{{ $author->first_name }}</td>
+            <td>{{ $author->last_name }}</td>
             <td>
                  <a href="{{ route('author.edit', $author->id) }}" class="btn btn-success btn-sm float-left mr-2">Edit</a>
                  <form method="POST" action="{{ route('author.delete') }}" class="float-left">

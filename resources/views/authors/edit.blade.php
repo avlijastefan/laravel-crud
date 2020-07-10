@@ -17,7 +17,8 @@
     <input type="hidden" name="id" value="{{ $author->id }}">
     <div class="row">
         <div class="col">
-            <input name="name" type="text" class="form-control" placeholder="Name" value="{{ $author->name }}">
+            <input name="first_name" type="text" class="form-control" placeholder="First name" value="{{ $author->first_name }}">
+            <input name="last_name" type="text" class="form-control" placeholder="Last name" value="{{ $author->last_name }}">
         </div>
     </div>
     <input type="submit" value="Save" class="btn btn-primary mt-4 btn-block">

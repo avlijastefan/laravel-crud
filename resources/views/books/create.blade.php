@@ -22,14 +22,12 @@
   </div>
 
   <div class="form-group mt-4">
-
-    <select class="form-control" name="author_id">
+  <select class="form-control" name="author_id">
       @foreach($authors as $author)
-        <option value="{{ $author->id }}">{{ $author->name }}</option>
+        <option value="{{ $author->id }}">{{ $author->first_name }}>{{ $author->last_name}}</option>
       @endforeach
     </select>
-
-  </div>
+ </div>
   
   <div class="form-group mt-4">
     <input type="submit" value="Save" class="btn btn-primary mt-4 btn-block">

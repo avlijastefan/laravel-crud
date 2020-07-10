@@ -41,6 +41,7 @@ class AuthorRequest extends FormRequest
     }
 
     public function messages()
+    
     {
         return [
             'name.required' => 'Name is required.',

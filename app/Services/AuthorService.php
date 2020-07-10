@@ -8,7 +8,8 @@ class AuthorService
 {
     public function getAll()
     {
-        return Author::orderBy('name')->get();
+        return Author::orderBy('first_name')->get();
+        return Author::orderBy('last_name')->get();
     }
 
     public function getById($id)
@@ -19,14 +20,16 @@ class AuthorService
     public function create($request)
     {
         return Author::create([
-            'name' => $request->input('name')
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name')
         ]);
     }
 
     public function update($request)
     {
         return Author::where('id', $request->input('id'))->update([
-            'name' => $request->input('name')
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name')
         ]);
     }
 

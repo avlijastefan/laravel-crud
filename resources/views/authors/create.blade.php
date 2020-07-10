@@ -15,7 +15,8 @@
   @csrf
   <div class="row">
     <div class="col">
-      <input name="name" type="text" class="form-control" placeholder="Name">
+      <input name="first_name" type="text" class="form-control" placeholder="First name">
+      <input name="last_name" type="text" class="form-control" placeholder="Last name">
     </div>
   </div>
   <input type="submit" value="Save" class="btn btn-primary mt-4 btn-block">

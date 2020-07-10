@@ -61,15 +61,13 @@ class BookController extends Controller
         ]);
     }
 
-    //TODO: Use BookRequests in next methods
-
-    public function create(Request $request)
+     public function create(BookRequest $request)
     {
         $this->bookService->create($request);
         return redirect( route('book.index') );
     }
 
-    public function update(Request $request)
+    public function update(BookRequest $request)
     {
         $this->bookService->update($request);
         return redirect( route('book.index') );
