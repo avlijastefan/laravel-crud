@@ -29,7 +29,7 @@ class BookRequest extends FormRequest
                 return [
                     'name' => 'required|min:5|max:50|alphanum_spaces|unique:books,name|bail',
                     'published'=> 'required|max:9999|numeric|bail',
-                    'price' => 'required|min:5|max:10|digits_between:min,max|numeric|bail'
+                    'price' => 'required|digits_between:0,10|numeric|bail'
                 ];
             break;
 
@@ -37,7 +37,7 @@ class BookRequest extends FormRequest
                 return [
                     'name' => 'required|min:5|max:50|alphanum_spaces|unique:books,name,'  . $this->id . ',id|bail',
                     'published'=> 'required|max:9999|numeric|bail',
-                    'price' => 'required|min:5|max:10|digits_between:min,max|numeric|bail'
+                    'price' => 'required|digits_between:0,10|numeric|bail'
                 ];
             break;
         }
@@ -51,17 +51,12 @@ class BookRequest extends FormRequest
             'name.max' => 'Name can have a maximum of 50 characters.',
             'name.alphanum_spaces' => 'Name must be entirely alphabetic characters.',
             'name.unique' => 'Name must not exist within the given database table.',
-            'name.bail' => 'Name is not required.',
             'published.required' => 'Published is required.',
             'published.max' => 'Published can have a maximum of 9999 numbers.',
             'published.numeric' => 'Published must keep only numbers',
-            'published.bail' =>'Published is not required.',
             'price.required' => 'Price is required.',
-            'price.min' => 'Price must be 5 characters.',
-            'price.max' => 'Price can have a maximum of 10 characters.',
-            'price.digits_between' => 'Price must have a length between the given min and max.',
-            'price.numeric' => 'Price must keep only numbers',
-            'price.bail' =>'Price is not required.'
-        ];
+            'price.digits_between' => 'Price must have a length between the given min 0 and max 10.',
+            'price.numeric' => 'Price must keep only numbers'
+         ];
     }
 }
