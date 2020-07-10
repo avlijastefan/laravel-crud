@@ -28,16 +28,16 @@ class BookRequest extends FormRequest
             case 'POST':
                 return [
                     'name' => 'required|min:5|max:50|alphanum_spaces|unique:books,name|bail',
-                    'published'=> 'required|min:5|max:50|numeric|unique:books,published|bail',
-                    'price' => 'required|min:5|max:10|numeric|unique:books,price|bail'
+                    'published'=> 'required|max:9999|numeric|bail',
+                    'price' => 'required|min:5|max:10|digits_between:min,max|numeric|bail'
                 ];
             break;
 
             case 'PUT':
                 return [
                     'name' => 'required|min:5|max:50|alphanum_spaces|unique:books,name,'  . $this->id . ',id|bail',
-                    'published'=> 'required|min:5|max:50|numeric|unique:books,published,|bail',
-                    'price' => 'required|min:5|max:10|numeric|unique:books,price|bail'
+                    'published'=> 'required|max:9999|numeric|bail',
+                    'price' => 'required|min:5|max:10|digits_between:min,max|numeric|bail'
                 ];
             break;
         }
@@ -53,16 +53,14 @@ class BookRequest extends FormRequest
             'name.unique' => 'Name must not exist within the given database table.',
             'name.bail' => 'Name is not required.',
             'published.required' => 'Published is required.',
-            'published.min' => 'Published must be 5 characters.',
-            'published.max' => 'Published can have a maximum of 50 characters.',
+            'published.max' => 'Published can have a maximum of 9999 numbers.',
             'published.numeric' => 'Published must keep only numbers',
-            'published.unique' => 'Published must not exist within the given database table.',
             'published.bail' =>'Published is not required.',
             'price.required' => 'Price is required.',
             'price.min' => 'Price must be 5 characters.',
             'price.max' => 'Price can have a maximum of 10 characters.',
+            'price.digits_between' => 'Price must have a length between the given min and max.',
             'price.numeric' => 'Price must keep only numbers',
-            'price.unique' =>'Price must not exist within the given database table.',
             'price.bail' =>'Price is not required.'
         ];
     }
