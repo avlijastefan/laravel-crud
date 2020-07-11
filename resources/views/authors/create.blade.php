@@ -15,10 +15,12 @@
   @csrf
   <div class="row">
     <div class="col-md-6">
-    <input name="first_name" type="text" class="form-control" placeholder="First name">
+    <input name="first_name" type="text" class="form-control" placeholder="First name" value="{{ old('first_name') }}">
+    <small class="text-danger">{{ $errors->first('first_name') }}</small>
     </div>
     <div class="col-md-6">
-    <input name="last_name" type="text" class="form-control" placeholder="Last name">
+    <input name="last_name" type="text" class="form-control" placeholder="Last name" value="{{ old('last_name') }}">
+    <small class="text-danger">{{ $errors->first('last_name') }}</small>
     </div>
   </div>
   <input type="submit" value="Save" class="btn btn-primary mt-4 btn-block">
