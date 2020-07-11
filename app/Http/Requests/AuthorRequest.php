@@ -27,16 +27,16 @@ class AuthorRequest extends FormRequest
         {           
             case 'POST':
                 return [
-                    'first_name' => 'required|min:5|max:20|uniqueFirstAndLastName:{$request->last_name}|bail',
-                    'last_name' => 'required|min:5|max:20|alpha|bail'
+                    'first_name' => 'required|min:3|max:20|uniqueFirstAndLastName:{$request->last_name}|bail',
+                    'last_name' => 'required|min:3|max:20|alpha|bail'
                     
                 ];
             break;
 
             case 'PUT':
                 return [
-                    'first_name' => 'required|min:5|max:20|uniqueFirstAndLastName:{$request->last_name},'  . $this->id . ',id|bail',
-                    'last_name' => 'required|min:5|max:20|alpha|bail'
+                    'first_name' => 'required|min:3|max:20|uniqueFirstAndLastName:{$request->last_name},'  . $this->id . ',id|bail',
+                    'last_name' => 'required|min:3|max:20|alpha|bail'
                 ];
             break;
         }
@@ -46,11 +46,11 @@ class AuthorRequest extends FormRequest
     {
         return [
             'first_name.required' => 'First name is required.',
-            'first_name.min' => 'First name must be 5 characters.',
+            'first_name.min' => 'First name must be 3 characters.',
             'first_name.max' => 'First name can have a maximum of 20 characters.',
             'first_name.uniqueFirstAndLastName' => 'Author name not unique.',
             'last_name.required' => 'Last name is required.',
-            'last_name.min' => 'Last name must be 5 characters.',
+            'last_name.min' => 'Last name must be 3 characters.',
             'last_name.max' => 'Last name can have a maximum of 20 characters.',
             'last_name.alpha' => 'Last name must be entirely alphabetic characters.'
          ];

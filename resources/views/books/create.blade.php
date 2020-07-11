@@ -15,9 +15,12 @@
   @csrf
   <div class="row">
     <div class="col">
-      <input name="name" type="text" class="form-control mb-4" placeholder="Name">
-      <input name="published" type="text" class="form-control mb-4" placeholder="Published">
-      <input name="price" type="text" class="form-control" placeholder="Price">
+      <input name="name" type="text" class="form-control mb-4" placeholder="Name" value="{{ old('name') }}">
+      <small class="text-danger">{{ $errors->first('name') }}</small>
+      <input name="published" type="text" class="form-control mb-4" placeholder="Published" value="{{ old('published') }}">
+      <small class="text-danger">{{ $errors->first('published') }}</small>
+      <input name="price" type="text" class="form-control" placeholder="Price" value="{{ old('price') }}">
+      <small class="text-danger">{{ $errors->first('price') }}</small>
     </div>
   </div>
 

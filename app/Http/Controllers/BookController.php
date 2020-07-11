@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\BookRequest;
 use App\Services\BookService;
 use App\Services\AuthorService;
 
@@ -54,10 +55,12 @@ class BookController extends Controller
     {
         $page_title = 'Editing a book';
         $book = $this->bookService->getById($id);
+        $authors = $this->authorService->getAll();
 
         return view('books.edit', [
             'page_title' => $page_title,
-            'book' => $book
+            'book' => $book,
+            'authors' => $authors
         ]);
     }
 
@@ -73,9 +76,9 @@ class BookController extends Controller
         return redirect( route('book.index') );
     }
 
-    public function destroy($id)  
+    public function delete(Request $request)  
     {
-        $bookService->delete($id);
+        $this->bookService->delete($request->input('id'));
         return redirect( route('book.index') );
     }
 }

@@ -46,7 +46,7 @@ class BookService
 
         $author_id = $request->input('book_id');
 
-        if($book->author->id !== $author_id){
+        if($book->author_id !== $author_id){
             $author = $authorService->findById($author_id);
             $book->author()->associate($author);
             $book->save();

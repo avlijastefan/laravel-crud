@@ -18,8 +18,11 @@
     <div class="row">
         <div class="col">
             <input name="name" type="text" class="form-control mb-4" placeholder="Name" value="{{ $book->name }}">
-            <input name="name" type="text" class="form-control mb-4" placeholder="Published" value="{{ $book->published }}">
-            <input name="name" type="text" class="form-control" placeholder="Price" value="{{$book->price}}">
+            <small class="text-danger">{{ $errors->first('name') }}</small>
+            <input name="published" type="text" class="form-control mb-4" placeholder="Published" value="{{ $book->published }}">
+            <small class="text-danger">{{ $errors->first('published') }}</small>
+            <input name="price" type="text" class="form-control" placeholder="Price" value="{{$book->price}}">
+            <small class="text-danger">{{ $errors->first('price') }}</small>
         </div>
     </div>
     <div class="form-group mt-4">
@@ -32,6 +35,7 @@
     
   <div class="form-group mt-4">
     <input type="submit" value="Save" class="btn btn-primary mt-4 btn-block">
+  </div>
 </form>
 @endsection
 

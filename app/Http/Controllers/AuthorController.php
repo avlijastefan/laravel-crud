@@ -28,7 +28,8 @@ class AuthorController extends Controller
 
     public function showCreateForm(){
         $page_title = 'Create author';
-        return view('authors.create', [
+       
+         return view('authors.create', [
             'page_title' => $page_title
         ]);
     }
