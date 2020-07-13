@@ -13,6 +13,7 @@
       <th scope="col">Name</th>
       <th scope="col">Published</th>
       <th scope="col">Price</th>
+      <th scope="col">Author</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -25,6 +26,11 @@
             <td>{{ $book->name }}</td>
             <td>{{ $book->published }}</td>
             <td>{{ $book->price }}</td>
+            <select name ="authors">
+            @foreach ($authors as $author)
+              <option value ="{{$author->id}}" {{ ($author->id == $author_id) ? 'selected="selected"' : ''}}
+            @endforeach
+            </select>
               <td>
                  <a href="{{ route('book.edit', $book->id) }}" class="btn btn-success btn-sm float-left mr-2">Edit</a>
                  <form method="POST" action="{{ route('book.delete') }}" class="float-left">
