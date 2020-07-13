@@ -38,20 +38,13 @@ class BookService
 
     public function update($request)
     {
-        $book = Book::where('id', $request->input('id'))->update([
-            'name' => $request->input('name'),
-            'published' => $request->input('published'),
-            'price' => $request->input('price')
-        ]);
-
-        $author_id = $request->input('book_id');
-
-        if($book->author_id !== $author_id){
-            $author = $authorService->findById($author_id);
-            $book->author()->associate($author);
-            $book->save();
-        }
-
+        $book = Book::findOrFail($request->input('id'));
+        $book->name = $request->input('name');
+        $book->published = $request->input('published');
+        $book->price = $request->input('price');
+        $book->author_id = $request->input('author_id');
+        $book->save();
+       
         return $book;
     }
 
