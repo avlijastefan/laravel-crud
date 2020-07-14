@@ -20,17 +20,12 @@
   <tbody>
 
     @foreach ($books as $book)
-
-        <tr>
+         <tr>
             <th scope="row">{{ $book->id }}</th>
             <td>{{ $book->name }}</td>
             <td>{{ $book->published }}</td>
             <td>{{ $book->price }}</td>
-            <select name ="authors">
-            @foreach ($authors as $author)
-              <option value ="{{$author->id}}" {{ ($author->id == $author_id) ? 'selected="selected"' : ''}}
-            @endforeach
-            </select>
+            <td>{{ $book->author->fullName() }}</td>
               <td>
                  <a href="{{ route('book.edit', $book->id) }}" class="btn btn-success btn-sm float-left mr-2">Edit</a>
                  <form method="POST" action="{{ route('book.delete') }}" class="float-left">
