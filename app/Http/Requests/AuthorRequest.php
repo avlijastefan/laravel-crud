@@ -27,7 +27,7 @@ class AuthorRequest extends FormRequest
         {           
             case 'POST':
                 return [
-                    'first_name' => 'required|min:3|max:20|uniqueFirstAndLastName:{$request->last_name}|bail',
+                    'first_name' => 'required|min:3|max:20|uniqueFirstAndLastName:' .$this->last_name .',last_name|bail',
                     'last_name' => 'required|min:3|max:20|alpha|bail'
                     
                 ];
@@ -35,7 +35,7 @@ class AuthorRequest extends FormRequest
 
             case 'PUT':
                 return [
-                    'first_name' => 'required|min:3|max:20|uniqueFirstAndLastName:{$request->last_name},'  . $this->id . ',id|bail',
+                    'first_name' => 'required|min:3|max:20|uniqueFirstAndLastName:' .$this->last_name .',last_name'  . $this->id . ',id|bail',
                     'last_name' => 'required|min:3|max:20|alpha|bail'
                 ];
             break;
