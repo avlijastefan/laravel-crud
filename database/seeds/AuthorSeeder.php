@@ -14,17 +14,20 @@ class AuthorSeeder extends Seeder
     {
         Author::create([
             'id' => 1,
-            'name' => 'Petar Petrovic'
+            'first_name' => 'Petar',
+            'last_name' => 'Petrovic'
         ]);
 
         Author::create([
             'id' => 2,
-            'name' => 'Pera Peric'
+            'first_name' => 'Pera',
+            'last_name' => 'Peric'
         ]);
 
         Author::create([
             'id' => 3,
-            'name' => 'Bogdan Ciric'
+            'first_name' => 'Bogdan',
+            'last_name' => 'Ciric'
         ]);
     }
 }
