@@ -20,6 +20,7 @@ return [
     'alpha' => 'The :attribute may only contain letters.',
     'alpha_dash' => 'The :attribute may only contain letters, numbers, dashes and underscores.',
     'alpha_num' => 'The :attribute may only contain letters and numbers.',
+    'alphanum_spaces' => 'The :attribute may only contain letters, numbers and spaces.',
     'array' => 'The :attribute must be an array.',
     'before' => 'The :attribute must be a date before :date.',
     'before_or_equal' => 'The :attribute must be a date before or equal to :date.',
@@ -133,6 +134,9 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'first_name' => [
+            'unique_first_and_last_name' => 'Author with this name already exists.'
+        ]
     ],
 
     /*
