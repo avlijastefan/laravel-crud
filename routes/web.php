@@ -34,3 +34,7 @@ Route::post('/authors/create', 'AuthorController@create')->name('author.submit')
 Route::get('/authors/edit/{id}', 'AuthorController@showEditForm')->name('author.edit');
 Route::put('/authors/update', 'AuthorController@update')->name('author.update');
 Route::delete('/authors/delete', 'AuthorController@delete')->name('author.delete');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
