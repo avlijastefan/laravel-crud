@@ -37,4 +37,12 @@ Route::delete('/authors/delete', 'AuthorController@delete')->name('author.delete
 
 Auth::routes();
 
+Route::post('/login', 'LoginController@login')->name('login.index');
+Route::get('/login/show', 'LoginController@showLoginForm')->name('login.show');
+Route::post('/logout', 'LoginController@logout')->name('login.logout');
+Route::post('/register', 'RegisterController@register')->name('register.index');
+Route::get('/register', 'RegisterController@showRegistrationForm')->name('register.show');
+
+
+
 Route::get('/home', 'HomeController@index')->name('home');

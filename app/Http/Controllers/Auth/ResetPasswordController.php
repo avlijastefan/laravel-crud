@@ -31,6 +31,6 @@ class ResetPasswordController extends Controller
 
     protected function guard()
     {
-    return Auth::guard('web');
+        return Auth::guard('web');
     }
 }

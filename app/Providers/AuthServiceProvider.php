@@ -39,9 +39,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('create-book', function ($user, $book) {
-            return $user->isAdmin === $book->user_id
-                        ? Response::allow()
-                        : Response::deny('You must be a administrator.');
+            return $user->id === $book->user_id;
         });
 
         Gate::define('update-book', function ($user, $book) {
@@ -57,9 +55,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('showCreateForm-book', function ($user, $book) {
-            return $user->isAdmin === $book->user_id
-                        ? Response::allow()
-                        : Response::deny('You must be a administrator.');
+            return $user->id === $book->user_id;
         });
 
         Gate::define('showEditForm-book', function ($user, $book) {
@@ -69,9 +65,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('create-author', function ($user, $author) {
-            return $user->isAdmin === $author->user_id
-                        ? Response::allow()
-                        : Response::deny('You must be a administrator.');
+            return $user->id === $author->user_id;
         });
 
         Gate::define('update-author', function ($user, $author) {
@@ -87,9 +81,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('showCreateForm-author', function ($user, $author) {
-            return $user->isAdmin === $author->user_id
-                        ? Response::allow()
-                        : Response::deny('You must be a administrator.');
+            return $user->id === $author->user_id;
         });
 
         Gate::define('showEditForm-author', function ($user, $author) {
