@@ -37,11 +37,11 @@ Route::delete('/authors/delete', 'AuthorController@delete')->name('author.delete
 
 Auth::routes();
 
-Route::post('/login', 'LoginController@login')->name('login.index');
-Route::get('/login/show', 'LoginController@showLoginForm')->name('login.show');
-Route::post('/logout', 'LoginController@logout')->name('login.logout');
-Route::post('/register', 'RegisterController@register')->name('register.index');
-Route::get('/register', 'RegisterController@showRegistrationForm')->name('register.show');
+Route::post('/login', 'Auth\LoginController@login');
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+Route::post('/register', 'Auth\RegisterController@register');
+Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 
 
 
