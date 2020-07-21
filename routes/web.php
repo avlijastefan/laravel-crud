@@ -45,4 +45,4 @@ Route::get('/register', 'RegisterController@showRegistrationForm')->name('regist
 
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');

@@ -89,8 +89,6 @@ class AuthServiceProvider extends ServiceProvider
                         ? Response::allow()
                         : Response::deny('You must be a administrator.');
         });
-
-        
     
         Gate::define('index-book', function ($user, $book) {
             return $user->id === $book->user_id;

@@ -29,8 +29,4 @@ class ResetPasswordController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
-    protected function guard()
-    {
-        return Auth::guard('web');
-    }
 }
