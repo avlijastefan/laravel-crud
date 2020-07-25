@@ -18,10 +18,10 @@ Route::get('/', 'PageController@index')->name('index');
 /**
  * Books
  */
-Route::get('/books', 'BookController@index')->name('book.index');
+Route::get('/books', 'BookController@index')->name('book.index')->middleware('auth');
 Route::post('/books/create', 'BookController@create')->name('book.submit');
 Route::get('/books/create', 'BookController@showCreateForm')->name('book.create');
-Route::get('/books/edit/{id}', 'BookController@showEditForm')->name('book.edit');
+Route::get('/books/edit/{id}', 'BookController@showEditForm')->name('book.edit')->middleware('admin');
 Route::put('/books/update', 'BookController@update')->name('book.update');
 Route::delete('/books/delete', 'BookController@delete')->name('book.delete');
 
@@ -35,14 +35,8 @@ Route::get('/authors/edit/{id}', 'AuthorController@showEditForm')->name('author.
 Route::put('/authors/update', 'AuthorController@update')->name('author.update');
 Route::delete('/authors/delete', 'AuthorController@delete')->name('author.delete');
 
-Auth::routes();
-
 Route::post('/login', 'Auth\LoginController@login');
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::post('/register', 'Auth\RegisterController@register');
 Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-
-
-
-Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
